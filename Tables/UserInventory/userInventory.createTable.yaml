@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: josh
+      changes:
+        - createTable:
+            tableName: userInventory
+            columns:
+              - column:
+                  name: userId
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: itemId
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: int
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: userId
+            baseTableName: userInventory
+            constraintName: fk_userInventory_user
+            referencedColumnNames: id
+            referencedTableName: user
+        - addForeignKeyConstraint:
+            baseColumnNames: itemId
+            baseTableName: userInventory
+            constraintName: fk_itemInventory_user
+            referencedColumnNames: id
+            referencedTableName: item

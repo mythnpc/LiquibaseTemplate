@@ -1,0 +1,21 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <preConditions onFail="HALT" onFailMessage="HeloWorld">
+        <sqlCheck expectedResult="1"> 
+            IF EXISTS (SELECT 1 FROM schedule.INFORMATION_SCHEMA.TABLES 
+            WHERE TABLE_NAME = 'MY_TABLE') 
+            SELECT 1 ELSE SELECT 0
+        </sqlCheck>
+    </preConditions>                      
+    <changeSet author="liquibase-docs" id="createProcedure-example">
+        <createProcedure 
+                dbms="mssql"
+                encoding="utf8"
+                path="StoredProcedures/createTest.sql"
+                procedureName="createTest">
+        </createProcedure>
+    </changeSet>
+</databaseChangeLog>

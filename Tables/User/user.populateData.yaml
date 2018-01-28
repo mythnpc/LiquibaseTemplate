@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: josh
+      changes:
+        - sql:
+            sql: insert into [user] (firstName, lastName, email) values ('Josh', 'Josh', 'Josh@email.com'), ('Some', 'One', 'Someone@email.com')

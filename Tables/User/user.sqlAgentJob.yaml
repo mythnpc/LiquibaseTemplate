@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: josh
+      changes:
+        - sql:
+            dbms: mssql
+            splitStatements: true
+            sql:  
+                  EXEC msdb.dbo.sp_add_job  
+                      @job_name = N'NightlyBackups' ;  
+                  

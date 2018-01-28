@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - preConditions:
+    - and:
+      - sqlCheck:
+          expectedResult: 'DungeonExists'
+          sql: IF EXISTS (SELECT 1 FROM schedule.INFORMATION_SCHEMA.TABLES 
+              WHERE TABLE_NAME = 'Dragon') 
+              SELECT 'DungeonExists' ELSE SELECT 'DungeonDoesNotExist'
+      - sqlCheck:
+          expectedResult: 5
+          sql: IF EXISTS (SELECT 5 FROM schedule.INFORMATION_SCHEMA.TABLES 
+              WHERE TABLE_NAME = 'MY_TABLE2') 
+              SELECT 1 ELSE SELECT 0
+  - changeSet:
+      id: 1
+      author: josh
+      changes:
+      - createProcedure:
+          comments: A String
+          dbms: mssql
+          encoding: utf8
+          path: StoredProcedures/createTest.sql
+          procedureName: createTest

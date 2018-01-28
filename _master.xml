@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <include file="Tables/User/_user.master.xml"/>
+  <include file="Tables/Item/_item.master.xml"/>
+  <include file="Tables/UserInventory/_userInventory.master.xml"/>
+
+  <include file="StoredProcedures/_storedProcedure.master.xml"/>
+</databaseChangeLog>
